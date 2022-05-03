@@ -19,4 +19,4 @@ const orderSchema = new Schema({
 
 const Order = mongoose.model('Order', orderSchema);
 
-export {Event}
+export {Order}
