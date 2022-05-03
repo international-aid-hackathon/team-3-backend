@@ -40,7 +40,7 @@ const create = (req, res) => {
 
 		// Validations and error handling here
 
-		res.status(201).json({ event: savedOrder });
+		res.status(201).json({ order: savedOrder });
 	});
 };
 
