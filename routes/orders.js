@@ -11,9 +11,9 @@ router.post('/', checkAuth, ordersCtrl.create);
 router.put('/:id', checkAuth, ordersCtrl.update);
 router.delete('/:id', checkAuth, ordersCtrl.destroy);
 
-router.post('/:id/orders', checkAuth, ordersCtrl.createOrder)
-router.delete('/:id/orders/:orderId', checkAuth, ordersCtrl.deleteOrder)
-router.patch('/:id/orders/:orderId', checkAuth, ordersCtrl.updateOrder)
+// router.post('/:id/orders', checkAuth, ordersCtrl.createOrder)
+// router.delete('/:id/orders/:orderId', checkAuth, ordersCtrl.deleteOrder)
+// router.patch('/:id/orders/:orderId', checkAuth, ordersCtrl.updateOrder)
 
 
 

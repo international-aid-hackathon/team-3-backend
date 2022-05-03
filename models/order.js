@@ -6,7 +6,7 @@ const orderSchema = new Schema({
     id: String,
     entrepreneur_id: String,
     customer_id: String,
-    date: Date.now,
+    date: Date,
     currency: String,
     total_price: Number,
     amount_paid: Number,
