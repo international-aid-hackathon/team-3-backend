@@ -2,11 +2,8 @@ import mongoose from "mongoose";
 
 const jobSchema = new mongoose.Schema(
   {
-    //not sure
     user: { type: mongoose.Schema.Types.ObjectId, ref: "Profile" },
-    business: String,
     date: String,
-    warehouse: String,
     priceBook: {
       type: Number,
       enum: [2, 6],
