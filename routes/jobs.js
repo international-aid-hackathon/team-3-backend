@@ -5,11 +5,11 @@ import * as jobCtrl from '../controllers/jobs.js'
 const router = Router()
 
 /*---------- Public Routes ----------*/
-router.get('/', jobCtrl.getAllJobs)
-router.post('/', jobCtrl.createJob)
-router.get('/:id', jobCtrl.getSingleJob)
-router.put('/:id', jobCtrl.updateJob)
-router.delete('/:id', jobCtrl.deleteJob)
+router.get('/', jobCtrl.index)
+router.post('/', jobCtrl.create)
+router.get('/:id', jobCtrl.show)
+router.put('/:id', jobCtrl.update)
+router.delete('/:id', jobCtrl.destroy)
 
 
 /*---------- Protected Routes ----------*/
