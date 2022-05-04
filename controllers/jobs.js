@@ -10,7 +10,7 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-  req.body.owner = req.user.profile;
+  req.body.user = req.user.profile;
   Job.findById(req.params.id, (err, foundJob) => {
     if (err) {
       console.log("Error in jobs#show:", err);
