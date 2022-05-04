@@ -8,7 +8,7 @@ import { router as authRouter } from './routes/auth.js'
 import { router as loanRouter } from './routes/loans.js'
 import { router as productRouter } from './routes/products.js'
 import { router as warehouseRouter } from './routes/warehouses.js'
-// import { router as jobsRouter } from './routes/jobs.js'
+import { router as jobsRouter } from './routes/jobs.js'
 
 import('./config/database.js')
 
@@ -23,7 +23,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/loans', loanRouter)
 app.use('/api/products', productRouter)
 app.use('/api/warehouses', warehouseRouter)
-// app.use('/api/jobs', jobsRouter)
+app.use('/api/jobs', jobsRouter)
 
 
 // Default Route

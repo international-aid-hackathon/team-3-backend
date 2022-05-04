@@ -15,7 +15,7 @@ const show = (req, res) => {
     if (err) {
       console.log("Error in jobs#show:", err);
 
-      if (!foundJobs)
+      if (!foundJob)
         return res.json({
           message: "There is no job with this ID in the db.",
         });
@@ -31,12 +31,11 @@ const show = (req, res) => {
 
 const create = (req, res) => {
   req.body.user = req.user.profile;
-  Job.create(req.body)
-  .then(job => {
-	Job.findById({ _id : job._id })
-	.populate("user")
-	.then(job => res.json(job))
-  })
+  Job.create(req.body).then((job) => {
+    Job.findById({ _id: job._id })
+      .populate("user")
+      .then((job) => res.json(job));
+  });
 };
 
 const update = (req, res) => {
