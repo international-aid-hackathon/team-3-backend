@@ -7,6 +7,7 @@ const router = Router()
 /*---------- Public Routes ----------*/
 router.get('/', authCtrl.getAllUsers)
 router.get('/:id', authCtrl.getSingleUser)
+router.delete('/:id', authCtrl.deleteUser)
 router.post('/signup', authCtrl.signup)
 router.post('/login', authCtrl.login)
 
