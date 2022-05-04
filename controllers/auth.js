@@ -2,6 +2,22 @@ import { User } from '../models/user.js'
 import { Profile } from '../models/profile.js'
 import jwt from 'jsonwebtoken'
 
+function getAllUsers(req, res) {
+  User.find().then((user) => {
+    res.json({ status: 200, user: user });
+  });
+}
+
+const getSingleUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userDoc = await User.findById(id);
+    return res.json(userDoc);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 function signup(req, res) {
   Profile.findOne({ email: req.body.email })
   .then(profile => {
@@ -77,4 +93,8 @@ function createJWT(user) {
   )
 }
 
+<<<<<<< HEAD
 export {signup, login, changePassword}
+=======
+export {signup, login, changePassword, getAllUsers, getSingleUser}
+>>>>>>> 1820d989842f199f0d5b1895869525511e704b51
