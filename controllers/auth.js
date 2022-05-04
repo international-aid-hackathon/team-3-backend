@@ -1,5 +1,6 @@
 import { User } from '../models/user.js'
 import { Profile } from '../models/profile.js'
+import { Loan } from '../models/loan.js';
 import jwt from 'jsonwebtoken'
 
 function getAllUsers(req, res) {
@@ -13,6 +14,16 @@ const getSingleUser = async (req, res) => {
     const { id } = req.params;
     const userDoc = await User.findById(id);
     return res.json(userDoc);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userDoc = await Product.deleteOne({id});
+    return res.json({status: 200, userDoc});
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -93,4 +104,4 @@ function createJWT(user) {
   )
 }
 
-export {signup, login, changePassword, getAllUsers, getSingleUser}
+export {signup, login, changePassword, getAllUsers, getSingleUser, deleteUser}

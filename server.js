@@ -6,6 +6,8 @@ import cors from 'cors'
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as loanRouter } from './routes/loans.js'
+import { router as productRouter } from './routes/products.js'
+import { router as warehouseRouter } from './routes/warehouses.js'
 
 import('./config/database.js')
 
@@ -18,6 +20,17 @@ app.use(express.json())
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/loans', loanRouter)
+app.use('/api/products', productRouter)
+app.use('/api/warehouses', warehouseRouter)
+
+
+// Default Route
+app.get("/", (req, res) => {
+  res.status(200).json({
+      "status": 200,
+      "msg" : "server is up and running"
+  })
+});
 
 app.use(function (req, res, next) {
   res.status(404).json({ err: "Not found" })
