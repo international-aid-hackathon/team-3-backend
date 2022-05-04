@@ -24,7 +24,7 @@ const show = (req, res) => {
 					message: 'There is no order with this ID in the db.',
 				});
 
-			return res.send('Incomplete event#show controller function');
+			return res.send('Incomplete order#show controller function');
 		}
 
 		res.status(200).json({
