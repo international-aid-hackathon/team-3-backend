@@ -12,8 +12,8 @@ const orderSchema = new Schema({
     amount_paid: Number,
     product_id: String,
     full_pay: Boolean,
-    loan_id: String
-
+    loan_id: String,
+    owner: { type: mongoose.Schema.Types.ObjectId, ref:"Profile"}
 })
 
 
