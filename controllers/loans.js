@@ -22,7 +22,7 @@ const createLoan = async (req, res) => {
 const getSingleLoan = async (req, res) => {
   try {
     const { id } = req.params;
-    const loanDoc = await Loan.findById(id);
+    const loanDoc = await Loan.findById(id).populate("users");
     return res.json(loanDoc);
   } catch (error) {
     res.status(500).json({ error: error.message });
