@@ -10,7 +10,11 @@ const userSchema = new mongoose.Schema({
   commission: String,
   warehouse: String,
   business: String,
-  filterSoldByMonth: [String],
+  filterSoldByMonth: {
+    Jan: { type: String },
+    Feb: { type: String },
+    Mar: { type: String },
+  },
   role: String,
   profile: { type: mongoose.Schema.Types.ObjectId, ref: "Profile" },
 });

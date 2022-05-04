@@ -9,25 +9,36 @@ const index = (req, res) => {
     });
 };
 
-const show = (req, res) => {
-  req.body.user = req.user.profile;
-  Job.findById(req.params.id, (err, foundJob) => {
-    if (err) {
-      console.log("Error in jobs#show:", err);
+// const show = (req, res) => {
+//   req.body.user = req.user.profile;
+//   Job.findById(req.params.id, (err, foundJob) => {
+//     if (err) {
+//       console.log("Error in jobs#show:", err);
 
-      if (!foundJob)
-        return res.json({
-          message: "There is no job with this ID in the db.",
-        });
+//       if (!foundJob)
+//         return res.json({
+//           message: "There is no job with this ID in the db.",
+//         });
+//       return res.send("Incomplete job#show controller function");
+//     }
+//     res.status(200).json({
+//       job: foundJob,
+//     });
+//   });
+// };
 
-      return res.send("Incomplete job#show controller function");
-    }
+//find by user
+const findByUser = async (req,res) => {
+	try {
+		const { id } = req.params;
+		const jobDoc = await Job.find({'user' : id});
+		return  res.json({status: 200, jobDoc  })
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+	
+	}
 
-    res.status(200).json({
-      job: foundJob,
-    });
-  });
-};
 
 const create = (req, res) => {
   req.body.user = req.user.profile;
@@ -71,4 +82,4 @@ const destroy = (req, res) => {
   });
 };
 
-export { index, show, create, update, destroy };
+export { index, create, update, destroy, findByUser };

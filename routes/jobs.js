@@ -7,7 +7,8 @@ const router = Router()
 /*---------- Public Routes ----------*/
 router.get('/', jobCtrl.index)
 // router.post('/', jobCtrl.create)
-router.get('/:id', jobCtrl.show)
+// router.get('/:id', jobCtrl.show)
+router.get('/:id', jobCtrl.findByUser)
 router.put('/:id', jobCtrl.update)
 router.delete('/:id', jobCtrl.destroy)
 
