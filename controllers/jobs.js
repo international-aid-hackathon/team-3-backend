@@ -28,17 +28,15 @@ const index = (req, res) => {
 // };
 
 //find by user
-const findByUser = async (req,res) => {
-	try {
-		const { id } = req.params;
-		const jobDoc = await Job.find({'user' : id});
-		return  res.json({status: 200, jobDoc  })
-	} catch (error) {
-		res.status(500).json({ error: error.message });
-	}
-	
-	}
-
+const findByUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const jobDoc = await Job.find({ user: id });
+    return res.json({ status: 200, jobDoc });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
 const create = (req, res) => {
   req.body.user = req.user.profile;
