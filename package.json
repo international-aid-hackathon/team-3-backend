@@ -4,11 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-<<<<<<< HEAD
     "start": "nodemon ./bin/www.js"
-=======
-    "start": "node ./bin/www.js"
->>>>>>> 1820d989842f199f0d5b1895869525511e704b51
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
