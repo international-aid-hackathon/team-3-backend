@@ -93,4 +93,8 @@ function createJWT(user) {
   )
 }
 
+<<<<<<< HEAD
+export {signup, login, changePassword}
+=======
 export {signup, login, changePassword, getAllUsers, getSingleUser}
+>>>>>>> 1820d989842f199f0d5b1895869525511e704b51
