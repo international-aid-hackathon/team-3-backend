@@ -14,6 +14,7 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
+    req.body.owner = req.user.profile;
 	Order.findById(req.params.id, (err, foundOrder) => {
 		if (err) {
 			console.log('Error in orders#show:', err);
