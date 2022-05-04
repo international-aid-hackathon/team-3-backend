@@ -4,12 +4,11 @@ const SALT_ROUNDS = 6
 
 const userSchema = new mongoose.Schema({
   name: String,
-  address: String,
-  phone: String,
-  deposit: String,
-  peopleInHouse: String,
   email: { type: String, required: true, lowercase: true, unique: true },
   password: String,
+  role: String,
+  commission: String,
+  filterSoldByMonth: [String],
   role: String,
   profile: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"}
 }, 
