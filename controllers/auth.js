@@ -8,6 +8,16 @@ function getAllUsers(req, res) {
   });
 }
 
+const getSingleUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userDoc = await User.findById(id);
+    return res.json(userDoc);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 function signup(req, res) {
   Profile.findOne({ email: req.body.email })
   .then(profile => {
@@ -83,4 +93,4 @@ function createJWT(user) {
   )
 }
 
-export {signup, login, changePassword, getAllUsers}
+export {signup, login, changePassword, getAllUsers, getSingleUser}
