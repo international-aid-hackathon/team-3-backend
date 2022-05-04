@@ -1,9 +1,9 @@
 import mongoose from 'mongoose'
 
 const jobSchema = new mongoose.Schema({
-  //not sure
-  users: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
-}, 
+    //not sure
+    users: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
+},
 )
 
 
