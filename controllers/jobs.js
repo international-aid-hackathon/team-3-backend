@@ -1,4 +1,5 @@
 import { Job } from "../models/job.js";
+import { User } from "../models/user.js";
 
 const index = (req, res) => {
   Job.find({})
@@ -38,14 +39,31 @@ const findByUser = async (req, res) => {
   }
 };
 
-const create = (req, res) => {
-  req.body.user = req.user.profile;
-  Job.create(req.body).then((job) => {
-    Job.findById({ _id: job._id })
-      .populate("user")
-      .then((job) => res.json(job));
-  });
+// const create = (req, res) => {
+//   req.body.user = req.user.profile;
+//   Job.create(req.body).then((job) => {
+//     Job.findById({ _id: job._id })
+//       .populate("user")
+//       .then((job) => res.json(job));
+//   });
+// };
+
+//create job with user id
+const create = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id);
+    const newJob = await Job.create(req.body);
+    const job = await Job.findByIdAndUpdate(newJob._id, {
+      $push: { user: user.profile },
+    }).populate("user");
+    res.json({ job });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
+
+
 
 const update = (req, res) => {
   Job.findByIdAndUpdate(
