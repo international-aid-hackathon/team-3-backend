@@ -6,12 +6,12 @@ const jobSchema = new mongoose.Schema(
     saleType: String,
     date: String,
     priceBook: {
-      type: Number,
+      type: String,
       enum: [2, 6],
       default: 6
     },
-    loan:{type: Boolean, default: true},
-    payFull: {type: Boolean, default: true},
+    loan:{type: String, default: true},
+    payFull: {type: String, default: true},
     product: {
       type: String,
       enum: ["Stove", "Filter", "Entrepreneur Filter"],
