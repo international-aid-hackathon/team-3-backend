@@ -25,6 +25,10 @@ const jobSchema = new mongoose.Schema(
       peopleInHouse: String,
     },
     quantity: String,
+    history:{
+        type: String, 
+        enum: [ "Because I don't like the taste of chlorine", "Because my children are getting sick", "Because the product is cheaper than I used to" ]
+      },
   },
 
   {
