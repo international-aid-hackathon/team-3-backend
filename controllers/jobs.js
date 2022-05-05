@@ -63,6 +63,28 @@ const create = async (req, res) => {
   }
 };
 
+//create job with user profile
+// const create = async (req, res) => {
+// 	const { id } = req.params;
+// 	try {
+// 			const user = await User.find({ profile: id });
+// 			if (user) {
+// 			const newJob = await Job.create(req.body);
+// 			const job = await Job.findByIdAndUpdate(newJob._id, {
+// 			  $push: { user: user.profile },
+// 			}).populate("user");
+// 			res.json({ job });
+// 			console.log(id)
+// 			console.log(user)
+// 			console.log(user.profile)
+// 			console.log(job)
+// 		}
+	 
+// 	} catch (error) {
+// 	  res.status(500).json({ error: error.message });
+// 	}
+//   };
+
 const update = (req, res) => {
   Job.findByIdAndUpdate(
     req.params.id,
