@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const jobSchema = new mongoose.Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, ref: "Profile" },
+    saleType: String,
     date: String,
     priceBook: {
       type: Number,
